@@ -11,10 +11,12 @@ import io.realm.annotations.Required;
 public class DrinkingSession extends RealmObject {
     @PrimaryKey
     private String date;
+    private Date formattedDate;
     private Integer numDrinks = 0;
 
     public DrinkingSession() {
         String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        this.formattedDate = new Date();
         this.date = date;
         this.numDrinks = 0;
     }
@@ -42,4 +44,8 @@ public class DrinkingSession extends RealmObject {
     public void setNumDrinks(int numDrinks) {
         this.numDrinks = numDrinks;
     }
+
+    public Date getFormattedDate() { return formattedDate; }
+
+    public void setFormattedDate(Date newDate) { this.formattedDate = newDate; }
 }
