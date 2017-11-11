@@ -46,4 +46,6 @@ public class DrinkingSession extends RealmObject {
     }
 
     public Date getFormattedDate() { return formattedDate; }
+
+    public void setFormattedDate(Date newDate) { this.formattedDate = newDate; }
 }
