@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -21,6 +22,7 @@ public class DrinkActivity extends AppCompatActivity {
     FloatingActionButton endDrinkingSessionBtn;
     FloatingActionButton changeCupTypeBtn;
     FloatingActionButton changeDrinkTypeBtn;
+    SeekBar seekBar;
     TextView numDrinksTextView;
     Button addDrinkBtn;
     Realm realm;
@@ -43,11 +45,14 @@ public class DrinkActivity extends AppCompatActivity {
         changeDrinkTypeBtn = findViewById(R.id.fabDrink);
         addDrinkBtn = findViewById(R.id.incrementDrinkBtn);
         numDrinksTextView = findViewById(R.id.numDrinkTextView);
+        seekBar = findViewById(R.id.mySeekBar);
 
+        numDrinksTextView.setText("" + 0);
 
-        createNewDrinkingSession();
 
         updateNumDrinks();
+
+        createNewDrinkingSession();
 
         endDrinkingSessionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -94,6 +99,7 @@ public class DrinkActivity extends AppCompatActivity {
 
                 if(currentSession != null) {
                     numDrinksTextView.setText("" + currentSession.getNumDrinks());
+                    Log.d("progress", seekBar.getProgress()+"");
                 }
             }
         });
@@ -103,6 +109,7 @@ public class DrinkActivity extends AppCompatActivity {
     public void createNewDrinkingSession() {
         DrinkingSession currentSession = realm.where(DrinkingSession.class).equalTo("date", currentDate).findFirst();
         if(currentSession != null) {
+            updateNumDrinks();
             return;
         }
         realm.executeTransactionAsync(new Realm.Transaction() {
