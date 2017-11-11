@@ -1,17 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.limitwhack.limit.StartActivity">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/goToMain"
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="69dp"
+        android:layout_height="29dp"
+        android:text="Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/ageText"
+        android:layout_width="87dp"
+        android:layout_height="23dp"
+        android:text="Age"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <EditText
+        android:id="@+id/ageInput"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/genderText"
+        android:layout_width="87dp"
+        android:layout_height="20dp"
+        android:text="Gender"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <Spinner
+        android:id="@+id/genderSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown" />
+
+    <TextView
+        android:id="@+id/heightText"
+        android:layout_width="92dp"
+        android:layout_height="22dp"
+        android:text="Height"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <EditText
+        android:id="@+id/heightFeetInput"
+        android:layout_width="78dp"
+        android:layout_height="33dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/feetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to main"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="377dp" />
+        android:text="feet" />
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/heightInchesInput"
+        android:layout_width="72dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/inchesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="inches" />
+
+    <TextView
+        android:id="@+id/weightText"
+        android:layout_width="100dp"
+        android:layout_height="24dp"
+        android:text="Weight"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <EditText
+        android:id="@+id/weightInput"
+        android:layout_width="175dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/weightPoundsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lbs"/>
+
+    <TextView
+        android:id="@+id/contactText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preferred Contact"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="ex. 123-456-7890"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:text="Save and Continue" />
+
+</LinearLayout>
