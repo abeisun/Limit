@@ -13,10 +13,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/numDrinkTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3 total drinks"
+            android:text="0 total drinks"
             android:textAlignment="center"
             android:textSize="40sp"/>
 
@@ -37,7 +37,7 @@
             android:progress="1" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/incrementDrinkBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add drink" />
