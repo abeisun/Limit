@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Realm realm = Realm.getDefaultInstance();
+        Realm realm = Realm.getDefaultInstance();   //database
 
         /*
         //make fake objs
@@ -65,44 +65,52 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        GraphView graph = (GraphView) findViewById(R.id.graph); //make graph
 
         //list of previous drinking sessions
         RealmResults<DrinkingSession> sessionsList = realm.where(DrinkingSession.class).findAll();
 
-        //DataPoint coordsList[];
-        DataPoint[] coordsList = new DataPoint[sessionsList.size()];
+        DataPoint[] coordsList = new DataPoint[sessionsList.size()];    //list of coordinates
 
-        //add coordinates to list to put on graph
+        //fill list with coordinates
         for (int i = 0; i < sessionsList.size(); i++) {
-            //Log.d("printing results", sessionsList.get(i).getDate() + " " + sessionsList.get(i).getNumDrinks());
             DataPoint point = new DataPoint(sessionsList.get(i).getFormattedDate().getTime(),
                                             sessionsList.get(i).getNumDrinks());
             coordsList[i] = point;
+            Log.d("mypoint", sessionsList.get(i).getDate());
         }
 
-        //for (int i = 0; i < sessionsList.size(); i++)
+        long minDate = Long.MAX_VALUE, maxDate = Long.MIN_VALUE;
+
+        for (int i = 0; i < sessionsList.size(); i++) {
+            if (sessionsList.get(i).getFormattedDate().getTime() < minDate)
+                minDate = sessionsList.get(i).getFormattedDate().getTime();
+
+            if (sessionsList.get(i).getFormattedDate().getTime() > maxDate)
+                maxDate = sessionsList.get(i).getFormattedDate().getTime();
+
             //Log.d("mylist", coordsList[i].getX() + " " + coordsList[i].getY());
+        }
 
+        //add coordinates to graph
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(coordsList);
-
         graph.addSeries(series);
 
-        // set date label formatter
+        //set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
         graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
 
-        // set manual x bounds to have nice steps
-//        graph.getViewport().setMinX(d1.getTime());
-//        graph.getViewport().setMaxX(d3.getTime());
-//        graph.getViewport().setXAxisBoundsManual(true);
+        //manual x bounds
+        graph.getViewport().setMinX(minDate);
+        graph.getViewport().setMaxX(maxDate);
+        graph.getViewport().setXAxisBoundsManual(true);
 
-        graph.getViewport().setMinY(0);
-        graph.getViewport().setYAxisBoundsManual(true);
+        //manual y bounds
+//        graph.getViewport().setMinY(0);
+//        graph.getViewport().setYAxisBoundsManual(true);
 
-        // as we use dates as labels, the human rounding to nice readable numbers
-        // is not necessary
-        graph.getGridLabelRenderer().setHumanRounding(false);
+        // as we use dates as labels, the human rounding to nice readable numbers is not necessary
+        //graph.getGridLabelRenderer().setHumanRounding(false);
 
 
         submit = findViewById(R.id.goToDrink);
