@@ -2,8 +2,6 @@ package com.limitwhack.limit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import javax.xml.bind.annotation.*;
-
 import com.github.clans.fab.FloatingActionButton;
 
 public class FeedbackActivity extends AppCompatActivity {
