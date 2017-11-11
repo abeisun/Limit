@@ -1,6 +1,8 @@
 package com.limitwhack.limit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+/*
         // generate Dates
         Calendar calendar = Calendar.getInstance();
         Date d1 = calendar.getTime();
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 new DataPoint(d2, 5),
                 new DataPoint(d3, 3)
         });
-
+*/
         graph.addSeries(series);
 
         // set date label formatter
