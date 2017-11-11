@@ -17,9 +17,23 @@
             android:layout_height="100dp"
             android:src="@drawable/feeling_good"
             android:tint="#C53F3B"/>
-        
+
         <ImageView
-            android:id="@+id/emoji"
+            android:id="@+id/meh"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/feeling_meh"
+            android:tint="#C53F3B"/>
+
+        <ImageView
+            android:id="@+id/sadness"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/feeling_sad"
+            android:tint="#C53F3B"/>
+
+        <ImageView
+            android:id="@+id/hungover"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/hungover"
