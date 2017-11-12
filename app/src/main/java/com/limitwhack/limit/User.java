@@ -41,4 +41,10 @@ public class User extends RealmObject {
     public void setBAC(double BAC) {
         this.BAC = BAC;
     }
+
+    /*
+    public double getConcentration();
+
+    public void setConcentration(double num_drinks) { this.}
+    */
 }

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -184,6 +185,9 @@ public class DrinkActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_text:
+                SmsManager sms = SmsManager.getDefault();
+                String number = "+12035121641";
+                sms.sendTextMessage(number, null,"Hello world I'm drunk", null, null);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

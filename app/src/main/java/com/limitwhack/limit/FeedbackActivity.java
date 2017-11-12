@@ -31,18 +31,30 @@ public class FeedbackActivity extends AppCompatActivity {
 
         happy.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         meh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         sad.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         ded.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
