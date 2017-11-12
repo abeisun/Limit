@@ -9,9 +9,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="39dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:text="@string/how_are_you_feeling"
-        android:textSize="20" />
+        android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/happy"
@@ -19,7 +20,7 @@
             android:layout_height="100dp"
             android:src="@drawable/feeling_good"
             android:tint="#C53F3B"
-            android:layout_marginBottom="15dp"/>/>
+            android:layout_marginBottom="10dp"/>
 
         <ImageView
             android:id="@+id/meh"
@@ -27,7 +28,7 @@
             android:layout_height="100dp"
             android:src="@drawable/feeling_meh"
             android:tint="#C53F3B"
-            android:layout_marginBottom="15dp"/>/>
+            android:layout_marginBottom="10dp"/>
 
         <ImageView
             android:id="@+id/sadness"
@@ -35,7 +36,7 @@
             android:layout_height="100dp"
             android:src="@drawable/feeling_sad"
             android:tint="#C53F3B"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginBottom="10dp"/>
 
 
         <ImageView
@@ -43,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="103dp"
             android:src="@drawable/hungover"
-            android:tint="#C53F3B"
-            android:layout_marginBottom="15dp"/>/>
+            android:tint="#C53F3B" />
 
     </LinearLayout>
