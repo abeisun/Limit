@@ -26,7 +26,7 @@
             android:weightSum="4">
 
             <ImageView
-                android:id="@+id/drinkImage"
+                android:id="@+id/cupImage"
                 android:layout_width="0dp"
                 android:layout_height="400dp"
                 android:src="@drawable/solo_cup"
@@ -52,8 +52,6 @@
                     android:layout_height="0dp"
                     android:splitTrack="false"
                     android:layout_weight="1"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:max="10"
                     app:seekBarRotation="CW90" /> <!-- Rotation: CW90 or CW270 -->
             </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
 
@@ -64,6 +62,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add drink" />
+
+        <Button
+            android:id="@+id/textFriendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text Friend" />
+
+        <Button
+            android:id="@+id/endSessionBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="End Session" />
 
     </LinearLayout>
 
@@ -111,40 +121,40 @@
             android:layout_gravity="bottom|end">
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fabDone"
+            android:id="@+id/shotFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/fab_add"
+            android:src="@drawable/ic_action_shot"
             android:layout_marginRight="8dp"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorAccent"
-            fab:fab_label="Finish drinking"/>
+            fab:fab_label="Shot"/>
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fabCup"
+            android:id="@+id/wineFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/fab_add"
+            android:src="@drawable/ic_action_wine"
             android:layout_marginRight="8dp"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorAccent"
-            fab:fab_label="Change cup"/>
+            fab:fab_label="Wine"/>
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fabDrink"
+                android:id="@+id/beerFab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:layout_marginBottom="8dp"
-                android:src="@drawable/fab_add"
+                android:src="@drawable/ic_action_solo"
                 android:layout_marginRight="8dp"
                 fab:fab_colorNormal="@color/colorPrimary"
                 fab:fab_colorPressed="@color/colorAccent"
-                fab:fab_label="Change drink"/>
+                fab:fab_label="Beer"/>
 
         </com.github.clans.fab.FloatingActionMenu>
 

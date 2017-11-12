@@ -3,11 +3,13 @@ package com.limitwhack.limit;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,9 +21,10 @@ import java.util.Date;
 import io.realm.Realm;
 
 public class DrinkActivity extends AppCompatActivity {
-    FloatingActionButton endDrinkingSessionBtn;
-    FloatingActionButton changeCupTypeBtn;
-    FloatingActionButton changeDrinkTypeBtn;
+    FloatingActionButton wineBtn;
+    FloatingActionButton beerBtn;
+    FloatingActionButton shotBtn;
+    ImageView cupImage;
     SeekBar seekBar;
     TextView numDrinksTextView;
     Button addDrinkBtn;
@@ -40,12 +43,14 @@ public class DrinkActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
 
 
-        endDrinkingSessionBtn = findViewById(R.id.fabDone);
-        changeCupTypeBtn = findViewById(R.id.fabCup);
-        changeDrinkTypeBtn = findViewById(R.id.fabDrink);
+        wineBtn = findViewById(R.id.wineFab);
+        beerBtn = findViewById(R.id.beerFab);
+        shotBtn = findViewById(R.id.shotFab);
         addDrinkBtn = findViewById(R.id.incrementDrinkBtn);
         numDrinksTextView = findViewById(R.id.numDrinkTextView);
+        cupImage = findViewById(R.id.cupImage);
         seekBar = findViewById(R.id.mySeekBar);
+
 
         numDrinksTextView.setText("" + 0);
 
@@ -54,10 +59,34 @@ public class DrinkActivity extends AppCompatActivity {
 
         createNewDrinkingSession();
 
-        endDrinkingSessionBtn.setOnClickListener(new View.OnClickListener() {
+//        endDrinkingSessionBtn.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        wineBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
-                startActivity(intent);
+                int color = Color.rgb(88,11, 28);
+                cupImage.setImageResource(R.drawable.wine);
+                cupImage.setColorFilter(color);
+            }
+        });
+
+        beerBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                int color = Color.rgb(100,0, 0);
+                cupImage.setImageResource(R.drawable.solo_cup);
+                cupImage.setColorFilter(color);
+            }
+        });
+
+        shotBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                int color = Color.rgb(83,83, 83);
+                cupImage.setImageResource(R.drawable.shot);
+                cupImage.setColorFilter(color);
             }
         });
 
