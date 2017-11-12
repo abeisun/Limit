@@ -69,6 +69,7 @@ public class DrinkActivity extends AppCompatActivity {
                         String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
                         DrinkingSession currentSession = bgRealm.where(DrinkingSession.class).equalTo("date", currentDate).findFirst();
                         currentSession.increaseNumDrinks();
+
                         updateNumDrinks();
                     }
                 }, new Realm.Transaction.OnSuccess() {
@@ -100,6 +101,12 @@ public class DrinkActivity extends AppCompatActivity {
                 if(currentSession != null) {
                     numDrinksTextView.setText("" + currentSession.getNumDrinks());
                     Log.d("progress", seekBar.getProgress()+"");
+
+                    User user = realm.where(User.class).findFirst();
+                    realm.beginTransaction();
+                    user.setBAC(Calculations.calculateBAC(user.getWeight(), user.getGender(), currentSession.getNumDrinks()));
+                    realm.commitTransaction();
+                    Log.d("bac", user.getBAC()+"");
                 }
             }
         });

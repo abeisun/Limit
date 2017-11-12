@@ -4,13 +4,13 @@ public class Calculations {
     public static final double CONVERT_KILOGRAMS = 0.45359237;
 
     //Convert weight in pounds to weight in kilograms
-    public double convertWeight(double weight) {
+    public static double convertWeight(double weight) {
         double realWeight = weight * CONVERT_KILOGRAMS;
         return realWeight;
     }
 
     //Calculate BAC level
-    public double calculateBAC(double weight,String gender, double standard_drinks) {
+    public static double calculateBAC(double weight,String gender, double standard_drinks) {
 
         double BACLevel;
         double realWeight = convertWeight(weight);
