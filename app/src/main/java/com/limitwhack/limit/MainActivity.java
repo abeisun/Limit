@@ -13,6 +13,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.PointsGraphSeries;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -93,16 +94,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //add coordinates to graph
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(coordsList);
-        graph.addSeries(series);
+        LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(coordsList);          //line
+        PointsGraphSeries<DataPoint> pointsSeries = new PointsGraphSeries<>(coordsList);    //pts
+        graph.addSeries(lineSeries);
+        graph.addSeries(pointsSeries);
 
         //set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
+        //graph.getGridLabelRenderer().setNumHorizontalLabels(sessionsList.size());
 
         //manual x bounds
-        graph.getViewport().setMinX(minDate);
-        graph.getViewport().setMaxX(maxDate);
+        Date currentDate = new Date();
+
+        if (minDate < Long.MAX_VALUE) {
+            graph.getViewport().setMinX(minDate);
+            graph.getViewport().setMaxX(maxDate);
+        }
+
+        else {
+            graph.getViewport().setMinX(currentDate.getTime());
+            graph.getViewport().setMaxX(currentDate.getTime());
+        }
+
         graph.getViewport().setXAxisBoundsManual(true);
 
         //manual y bounds
