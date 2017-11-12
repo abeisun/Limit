@@ -2,6 +2,7 @@
     package="com.limitwhack.limit">
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission-sdk-23 android:name="android.permission.SEND_SMS" android:maxSdkVersion="25" />
 
     <application
         android:name=".MyApplication"
