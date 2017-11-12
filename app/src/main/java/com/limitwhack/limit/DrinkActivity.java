@@ -186,7 +186,8 @@ public class DrinkActivity extends AppCompatActivity {
                 return true;
             case R.id.action_text:
                 SmsManager sms = SmsManager.getDefault();
-                sms.sendTextMessage("2035121641", null,"Hello world I'm drunk", null, null);
+                String number = "+12035121641";
+                sms.sendTextMessage(number, null,"Hello world I'm drunk", null, null);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
