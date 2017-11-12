@@ -4,20 +4,11 @@ import io.realm.RealmObject;
 
 public class User extends RealmObject {
 
-    private Integer age;
     private Integer weight;
     private String gender;
     private String emergencyNumber;
     private double BAC;
 
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public Integer getWeight() {
         return weight;

@@ -7,34 +7,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:id="@+id/nameText"
-        android:layout_width="69dp"
-        android:layout_height="29dp"
-        android:text="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
-
-    <EditText
-        android:id="@+id/nameInput"
-        android:layout_width="241dp"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/ageText"
-        android:layout_width="87dp"
-        android:layout_height="23dp"
-        android:text="Age"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
-
-    <EditText
-        android:id="@+id/ageInput"
-        android:layout_width="243dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
         android:id="@+id/genderText"
         android:layout_width="87dp"
         android:layout_height="20dp"
@@ -75,8 +47,9 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <EditText
-        android:layout_width="243dp"
-        android:layout_height="60dp"
+        android:id="@+id/contactEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="ex. 123-456-7890"
         android:inputType="textPersonName" />
