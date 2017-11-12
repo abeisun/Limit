@@ -3,11 +3,16 @@ package com.limitwhack.limit;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,9 +24,11 @@ import java.util.Date;
 import io.realm.Realm;
 
 public class DrinkActivity extends AppCompatActivity {
-    FloatingActionButton endDrinkingSessionBtn;
-    FloatingActionButton changeCupTypeBtn;
-    FloatingActionButton changeDrinkTypeBtn;
+    FloatingActionButton wineBtn;
+    FloatingActionButton beerBtn;
+    FloatingActionButton shotBtn;
+    Button endSessionBtn;
+    ImageView cupImage;
     SeekBar seekBar;
     TextView numDrinksTextView;
     Button addDrinkBtn;
@@ -40,24 +47,51 @@ public class DrinkActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
 
 
-        endDrinkingSessionBtn = findViewById(R.id.fabDone);
-        changeCupTypeBtn = findViewById(R.id.fabCup);
-        changeDrinkTypeBtn = findViewById(R.id.fabDrink);
+        wineBtn = findViewById(R.id.wineFab);
+        beerBtn = findViewById(R.id.beerFab);
+        shotBtn = findViewById(R.id.shotFab);
         addDrinkBtn = findViewById(R.id.incrementDrinkBtn);
         numDrinksTextView = findViewById(R.id.numDrinkTextView);
-        seekBar = findViewById(R.id.mySeekBar);
+        cupImage = findViewById(R.id.cupImage);
+//        seekBar = findViewById(R.id.mySeekBar);
+//        endSessionBtn = findViewById(R.id.endSessionBtn);
 
-        numDrinksTextView.setText("" + 0);
+
+        numDrinksTextView.setText(0 + " drinks");
 
 
         updateNumDrinks();
 
         createNewDrinkingSession();
 
-        endDrinkingSessionBtn.setOnClickListener(new View.OnClickListener() {
+//        endSessionBtn.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        wineBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
-                startActivity(intent);
+                int color = Color.rgb(88,11, 28);
+                cupImage.setImageResource(R.drawable.wine);
+                cupImage.setColorFilter(color);
+            }
+        });
+
+        beerBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                int color = Color.rgb(100,0, 0);
+                cupImage.setImageResource(R.drawable.solo_cup);
+                cupImage.setColorFilter(color);
+            }
+        });
+
+        shotBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                int color = Color.rgb(83,83, 83);
+                cupImage.setImageResource(R.drawable.shot);
+                cupImage.setColorFilter(color);
             }
         });
 
@@ -69,6 +103,7 @@ public class DrinkActivity extends AppCompatActivity {
                         String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
                         DrinkingSession currentSession = bgRealm.where(DrinkingSession.class).equalTo("date", currentDate).findFirst();
                         currentSession.increaseNumDrinks();
+
                         updateNumDrinks();
                     }
                 }, new Realm.Transaction.OnSuccess() {
@@ -98,8 +133,14 @@ public class DrinkActivity extends AppCompatActivity {
                 DrinkingSession currentSession = realm.where(DrinkingSession.class).equalTo("date", currentDate).findFirst();
 
                 if(currentSession != null) {
-                    numDrinksTextView.setText("" + currentSession.getNumDrinks());
-                    Log.d("progress", seekBar.getProgress()+"");
+                    numDrinksTextView.setText(currentSession.getNumDrinks() + " drinks");
+//                    Log.d("progress", seekBar.getProgress()+"");
+
+                    User user = realm.where(User.class).findFirst();
+                    realm.beginTransaction();
+                    user.setBAC(Calculations.calculateBAC(user.getWeight(), user.getGender(), currentSession.getNumDrinks()));
+                    realm.commitTransaction();
+                    Log.d("bac", user.getBAC()+"");
                 }
             }
         });
@@ -125,5 +166,27 @@ public class DrinkActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.drink_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_end:
+                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_text:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

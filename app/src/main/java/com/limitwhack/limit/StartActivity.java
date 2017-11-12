@@ -80,8 +80,6 @@ public class StartActivity extends AppCompatActivity {
                 });
 
 
-
-
                 Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 startActivity(intent);
             }
