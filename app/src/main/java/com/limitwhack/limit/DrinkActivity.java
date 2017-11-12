@@ -70,12 +70,6 @@ public class DrinkActivity extends AppCompatActivity {
 
         createNewDrinkingSession();
 
-//        endSessionBtn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         wineBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -187,8 +181,9 @@ public class DrinkActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_end:
-                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
+                Intent intent = new Intent(DrinkActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.action_text:
