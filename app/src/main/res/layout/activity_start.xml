@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:paddingTop="20dp"
+        app:srcCompat="@drawable/limit_logo" />
 
     <TextView
         android:id="@+id/genderText"
-        android:layout_width="87dp"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="12dp"
@@ -18,59 +27,49 @@
 
     <Spinner
         android:id="@+id/genderSpinner"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
         android:textSize="18sp"
         style="@style/Widget.AppCompat.Spinner.Underlined" />
 
-    <TextView
-        android:id="@+id/weightText"
-        android:layout_width="100dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:textSize="18sp"
-        android:text="Weight (lbs)"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/weightInput"
-        android:layout_width="234dp"
-        android:layout_height="59dp"
-        android:layout_marginLeft="12dp"
-        android:textSize="18sp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/weightInput"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:textSize="18sp"
+            android:ems="10"
+            android:hint="Weight (lbs)"
+            android:inputType="number" />
 
-    <TextView
-        android:id="@+id/contactText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:textSize="18sp"
-        android:text="Preferred Contact"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/contactEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="ex. 123-456-7890"
-        android:inputType="textPersonName" />
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/contactEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="18sp"
+            android:hint="Emergency Contact #"
+            android:inputType="phone" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
         android:textSize="16sp"
         android:layout_gravity="center"
         android:background="@android:color/transparent"
