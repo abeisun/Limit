@@ -1,0 +1,31 @@
+///////////////////////////////////////////////////////
+///                 README FOR LIMIT                ///
+///////////////////////////////////////////////////////
+
+Many college campuses have dangerous drinking culture 
+that can lead young and unexperienced drinkers into 
+the possibility of the overdose. At Whack 2017, We
+created a mobile application dubbed ////Limit//////.
+
+The objectives of Limit is to learn a user's tolerance
+to alcohol and also contact a family member or friend
+if the user's BAC is calculated to be harmfully high
+and send a text message to their prefered contact.
+
+Our team utilized Android Studio to create the project.
+For the majority of us, this was our first time with
+the program. Thanks Monsurat!
+
+Naturally, we ran into a few challenges. A few include:
+1.
+2.
+3.
+
+We're proud to make something new that can keep people safe!
+Hopefully, the app's service helps many user's learn about
+safe drinking habits and assist others in riskier situations.
+
+What's next for Limit?
+We hope to predicte when the user reached their alcohol 
+consumption limit and warn them when they are hitting
+the danger zone and allow future suggestions in habit.
