@@ -1,6 +1,8 @@
 package com.limitwhack.limit;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import com.github.clans.fab.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import io.realm.Realm;
@@ -180,7 +183,18 @@ public class DrinkActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_end:
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
+                notificationIntent.addCategory("android.intent.category.DEFAULT");
+
+                PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.SECOND, 15);
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
                 Intent intent = new Intent(DrinkActivity.this, MainActivity.class);
+
                 startActivity(intent);
                 finish();
                 return true;
