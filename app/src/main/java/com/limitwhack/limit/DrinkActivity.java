@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class DrinkActivity extends AppCompatActivity {
     FloatingActionButton wineBtn;
@@ -192,7 +193,7 @@ public class DrinkActivity extends AppCompatActivity {
 
             case R.id.action_text:
 
-                //ask for permission to send texts if number input exists
+                //user didn't ask for permission yet
                 if (ContextCompat.checkSelfPermission(this,
                         Manifest.permission.SEND_SMS)
                         != PackageManager.PERMISSION_GRANTED) {
@@ -206,12 +207,7 @@ public class DrinkActivity extends AppCompatActivity {
                     return false;
                 }
 
-//                else if (ContextCompat.checkSelfPermission(this,
-//                        Manifest.permission.SEND_SMS)
-//                        != PackageManager.PERMISSION_GRANTED) {
-//                    Log.d("mypermission", "it's false");
-//                    return false;
-//                }
+                //user asked for permission & got it
                 else {
                     SmsManager sms = SmsManager.getDefault();
                     String number = "+12035121641";
@@ -229,20 +225,17 @@ public class DrinkActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
 
-        // If request is cancelled, the result arrays are empty.
+        //if request is cancelled, the result arrays are empty
+        //send sms if permission was granted
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            // permission was granted, yay! Do the
-            // contacts-related task you need to do.
-            SmsManager sms = SmsManager.getDefault();
-            String number = "+12035121641";
-            sms.sendTextMessage(number, null, "Hello world I'm drunk",
-                    null, null);
-        }
 
-        else {
-            // permission denied, boo! Disable the
-            // functionality that depends on this permission.
-            Log.d("mypermission", "it's false");
+            SmsManager sms = SmsManager.getDefault();
+
+            Realm realm = Realm.getDefaultInstance();
+            User user = realm.where(User.class).findFirst();    //user info from database
+
+            sms.sendTextMessage(user.getEmergencyNumber(), null,
+                           "Hello world I'm drunk", null, null);
         }
 
         return;
