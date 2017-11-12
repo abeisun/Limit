@@ -6,9 +6,9 @@ public class User extends RealmObject {
 
     private Integer age;
     private Integer weight;
-    private Integer height;
     private String gender;
     private String emergencyNumber;
+    private double BAC;
 
 
     public Integer getAge() {
@@ -27,14 +27,6 @@ public class User extends RealmObject {
         this.weight = weight;
     }
 
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -49,5 +41,13 @@ public class User extends RealmObject {
 
     public void setEmergencyNumber(String emergencyNumber) {
         this.emergencyNumber = emergencyNumber;
+    }
+
+    public double getBAC() {
+        return BAC;
+    }
+
+    public void setBAC(double BAC) {
+        this.BAC = BAC;
     }
 }

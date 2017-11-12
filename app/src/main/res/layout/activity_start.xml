@@ -48,39 +48,6 @@
         android:background="@android:drawable/btn_dropdown" />
 
     <TextView
-        android:id="@+id/heightText"
-        android:layout_width="92dp"
-        android:layout_height="22dp"
-        android:text="Height"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
-
-    <EditText
-        android:id="@+id/heightFeetInput"
-        android:layout_width="78dp"
-        android:layout_height="33dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/feetText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="feet" />
-
-    <EditText
-        android:id="@+id/heightInchesInput"
-        android:layout_width="72dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/inchesText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="inches" />
-
-    <TextView
         android:id="@+id/weightText"
         android:layout_width="100dp"
         android:layout_height="24dp"
