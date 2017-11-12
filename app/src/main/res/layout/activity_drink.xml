@@ -8,21 +8,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
         xmlns:fab="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:weightSum="4">-->
+        <Button
+            android:id="@+id/incrementDrinkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:text="Add drink" />
 
-            <ImageView
+
+        <ImageView
                 android:id="@+id/cupImage"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:src="@drawable/solo_cup"
-                android:layout_marginTop="30dp"
                 android:tint="#C53F3B"/>
 
             <TextView
@@ -31,44 +35,6 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textSize="40sp"/>
-
-
-        <!--<SeekBar-->
-                <!--android:id="@+id/seekBar"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="400dp"-->
-                <!--android:rotation="270"-->
-                <!--style="@style/Widget.AppCompat.SeekBar.Discrete"-->
-                <!--android:max="10"-->
-                <!--android:progress="1"-->
-                <!--android:layout_weight="1"/>-->
-            <!--<com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent">-->
-                <!--<com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar-->
-                    <!--android:id="@+id/mySeekBar"-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="0dp"-->
-                    <!--android:splitTrack="false"-->
-                    <!--android:layout_weight="1"-->
-                    <!--app:seekBarRotation="CW90" /> &lt;!&ndash; Rotation: CW90 or CW270 &ndash;&gt;-->
-            <!--</com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>-->
-
-        <!--</LinearLayout>-->
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/incrementDrinkBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add drink" />
-
-        </LinearLayout>
 
 
     </LinearLayout>
@@ -91,7 +57,7 @@
             fab:menu_colorPressed="@color/colorPrimary"
             fab:menu_colorRipple="@color/colorPrimary"
             fab:menu_animationDelayPerItem="50"
-            fab:menu_icon="@drawable/fab_add"
+            fab:menu_icon="@drawable/ic_action_edit"
             fab:menu_buttonSpacing="0dp"
             fab:menu_labels_margin="0dp"
             fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"

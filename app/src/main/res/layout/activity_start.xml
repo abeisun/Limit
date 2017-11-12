@@ -24,7 +24,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:textSize="18sp"
-        android:background="@android:drawable/btn_dropdown" />
+        style="@style/Widget.AppCompat.Spinner.Underlined" />
 
     <TextView
         android:id="@+id/weightText"
@@ -33,7 +33,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="12dp"
         android:textSize="18sp"
-        android:text="Weight"
+        android:text="Weight (lbs)"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <EditText
@@ -44,14 +44,6 @@
         android:textSize="18sp"
         android:ems="10"
         android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/weightPoundsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:textSize="18sp"
-        android:text="lbs"/>
 
     <TextView
         android:id="@+id/contactText"
@@ -80,6 +72,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="12dp"
         android:textSize="16sp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
         android:text="Save and Continue" />
 
 </LinearLayout>
