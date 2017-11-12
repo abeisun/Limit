@@ -16,6 +16,7 @@
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="360dp" />
 

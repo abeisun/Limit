@@ -52,10 +52,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //add entries to graph
-        LineDataSet dataSet = new LineDataSet(entries, "Label");
-        LineData lineData = new LineData(dataSet);
-        chart.setData(lineData);
-        chart.invalidate(); //refresh
+        if (sessionsList.size() > 0) {
+            LineDataSet dataSet = new LineDataSet(entries, "Label");
+            LineData lineData = new LineData(dataSet);
+            chart.setData(lineData);
+            chart.invalidate(); //refresh
+            chart.getAxisRight().setDrawLabels(false);
+        }
+
+        else
+            chart.setNoDataText("No previous drinking sessions!");
 
         //start new session button
         submit = findViewById(R.id.goToDrink);
