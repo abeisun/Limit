@@ -1,9 +1,13 @@
 package com.limitwhack.limit;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -180,17 +184,67 @@ public class DrinkActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+
             case R.id.action_end:
                 Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
                 startActivity(intent);
                 return true;
+
             case R.id.action_text:
-                SmsManager sms = SmsManager.getDefault();
-                String number = "+12035121641";
-                sms.sendTextMessage(number, null,"Hello world I'm drunk", null, null);
+
+                //ask for permission to send texts if number input exists
+                if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.SEND_SMS)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
+                    }
+
+                    else {
+                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 0);
+                    }
+                    return false;
+                }
+
+//                else if (ContextCompat.checkSelfPermission(this,
+//                        Manifest.permission.SEND_SMS)
+//                        != PackageManager.PERMISSION_GRANTED) {
+//                    Log.d("mypermission", "it's false");
+//                    return false;
+//                }
+                else {
+                    SmsManager sms = SmsManager.getDefault();
+                    String number = "+12035121641";
+                    sms.sendTextMessage(number, null, "Hello world I'm drunk",
+                            null, null);
+                }
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+
+        // If request is cancelled, the result arrays are empty.
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // permission was granted, yay! Do the
+            // contacts-related task you need to do.
+            SmsManager sms = SmsManager.getDefault();
+            String number = "+12035121641";
+            sms.sendTextMessage(number, null, "Hello world I'm drunk",
+                    null, null);
+        }
+
+        else {
+            // permission denied, boo! Disable the
+            // functionality that depends on this permission.
+            Log.d("mypermission", "it's false");
+        }
+
+        return;
     }
 }
