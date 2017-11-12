@@ -14,7 +14,7 @@
         android:text="@string/how_are_you_feeling"
         android:textSize="20dp" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/happy"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -23,7 +23,7 @@
         android:src="@drawable/feeling_good"
         android:tint="#C53F3B"/>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/meh"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -32,7 +32,7 @@
         android:src="@drawable/feeling_meh"
         android:tint="#C53F3B" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/sadness"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -41,7 +41,7 @@
         android:src="@drawable/feeling_sad"
         android:tint="#C53F3B" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/hungover"
         android:layout_width="100dp"
         android:layout_height="100dp"
