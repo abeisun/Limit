@@ -19,19 +19,18 @@
             android:textAlignment="center"
             android:textSize="40sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="4">-->
 
             <ImageView
                 android:id="@+id/cupImage"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:src="@drawable/solo_cup"
                 android:layout_marginTop="5dp"
-                android:layout_weight="3"
                 android:tint="#C53F3B"/>
 
             <!--<SeekBar-->
@@ -43,37 +42,48 @@
                 <!--android:max="10"-->
                 <!--android:progress="1"-->
                 <!--android:layout_weight="1"/>-->
-            <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-                <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
-                    android:id="@+id/mySeekBar"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:splitTrack="false"
-                    android:layout_weight="1"
-                    app:seekBarRotation="CW90" /> <!-- Rotation: CW90 or CW270 -->
-            </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
+            <!--<com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent">-->
+                <!--<com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar-->
+                    <!--android:id="@+id/mySeekBar"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:splitTrack="false"-->
+                    <!--android:layout_weight="1"-->
+                    <!--app:seekBarRotation="CW90" /> &lt;!&ndash; Rotation: CW90 or CW270 &ndash;&gt;-->
+            <!--</com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
         <Button
             android:id="@+id/incrementDrinkBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Add drink" />
 
         <Button
             android:id="@+id/textFriendBtn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Text Friend" />
 
         <Button
             android:id="@+id/endSessionBtn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="End Session" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

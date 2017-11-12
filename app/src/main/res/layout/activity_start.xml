@@ -10,26 +10,38 @@
         android:id="@+id/genderText"
         android:layout_width="87dp"
         android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
         android:text="Gender"
+        android:textSize="18sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <Spinner
         android:id="@+id/genderSpinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:textSize="18sp"
         android:background="@android:drawable/btn_dropdown" />
 
     <TextView
         android:id="@+id/weightText"
         android:layout_width="100dp"
         android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:textSize="18sp"
         android:text="Weight"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <EditText
         android:id="@+id/weightInput"
-        android:layout_width="175dp"
-        android:layout_height="41dp"
+        android:layout_width="234dp"
+        android:layout_height="59dp"
+        android:layout_marginLeft="12dp"
+        android:textSize="18sp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -37,12 +49,17 @@
         android:id="@+id/weightPoundsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="18sp"
         android:text="lbs"/>
 
     <TextView
         android:id="@+id/contactText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:textSize="18sp"
         android:text="Preferred Contact"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
@@ -50,7 +67,9 @@
         android:id="@+id/contactEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
         android:ems="10"
+        android:textSize="18sp"
         android:hint="ex. 123-456-7890"
         android:inputType="textPersonName" />
 
@@ -58,6 +77,9 @@
         android:id="@+id/saveButton"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:textSize="16sp"
         android:text="Save and Continue" />
 
 </LinearLayout>

@@ -24,6 +24,7 @@ public class DrinkActivity extends AppCompatActivity {
     FloatingActionButton wineBtn;
     FloatingActionButton beerBtn;
     FloatingActionButton shotBtn;
+    Button endSessionBtn;
     ImageView cupImage;
     SeekBar seekBar;
     TextView numDrinksTextView;
@@ -49,22 +50,23 @@ public class DrinkActivity extends AppCompatActivity {
         addDrinkBtn = findViewById(R.id.incrementDrinkBtn);
         numDrinksTextView = findViewById(R.id.numDrinkTextView);
         cupImage = findViewById(R.id.cupImage);
-        seekBar = findViewById(R.id.mySeekBar);
+//        seekBar = findViewById(R.id.mySeekBar);
+        endSessionBtn = findViewById(R.id.endSessionBtn);
 
 
-        numDrinksTextView.setText("" + 0);
+        numDrinksTextView.setText(0 + " drinks");
 
 
         updateNumDrinks();
 
         createNewDrinkingSession();
 
-//        endDrinkingSessionBtn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        endSessionBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(DrinkActivity.this, FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
 
         wineBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -128,8 +130,8 @@ public class DrinkActivity extends AppCompatActivity {
                 DrinkingSession currentSession = realm.where(DrinkingSession.class).equalTo("date", currentDate).findFirst();
 
                 if(currentSession != null) {
-                    numDrinksTextView.setText("" + currentSession.getNumDrinks());
-                    Log.d("progress", seekBar.getProgress()+"");
+                    numDrinksTextView.setText(currentSession.getNumDrinks() + " drinks");
+//                    Log.d("progress", seekBar.getProgress()+"");
 
                     User user = realm.where(User.class).findFirst();
                     realm.beginTransaction();
