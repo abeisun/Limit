@@ -23,18 +23,21 @@ public class StartActivity extends AppCompatActivity {
     EditText emergencyContact;
     Spinner genderSpinner;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         SharedPreferences shared;
-        shared = getSharedPreferences("com.limitwhack.limit", Context.MODE_PRIVATE);
-        if (shared.getBoolean("first_time", true)) {
 
-        } else {
+        shared = getSharedPreferences("com.limitwhack.limit", Context.MODE_PRIVATE);
+        if (shared.contains("inputted")) {
             startActivity(new Intent(StartActivity.this, MainActivity.class));
             finish();
         }
+
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putBoolean("inputted", true);
+        editor.commit();
 
         setContentView(R.layout.activity_start);
         setTitle("Start");
@@ -79,7 +82,6 @@ public class StartActivity extends AppCompatActivity {
 
 
 
-
                 Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -92,5 +94,4 @@ public class StartActivity extends AppCompatActivity {
         PreferenceManager.getDefaultSharedPreferences(this).edit()
                 .putBoolean("first_time", true).apply();
     }
-
 }
