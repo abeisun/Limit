@@ -17,11 +17,9 @@ public class Calculations {
 
         if (gender.equals("Male")) {
             BACLevel = (((((0.9672 * standard_drinks)/(0.58 * realWeight)))-0.045) * 10);
-
         }
         else if (gender.equals("Female")){
             BACLevel = (((((0.9672 * standard_drinks)/(0.49 * realWeight)))-0.051) * 10);
-
         }
         else {
             BACLevel = (((((0.9672 * standard_drinks)/(0.49 * realWeight)))-0.048) * 10);

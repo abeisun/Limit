@@ -15,8 +15,8 @@
 
     <EditText
         android:id="@+id/nameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_width="241dp"
+        android:layout_height="57dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -29,8 +29,8 @@
 
     <EditText
         android:id="@+id/ageInput"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -56,8 +56,8 @@
 
     <EditText
         android:id="@+id/weightInput"
-        android:layout_width="175dp"
-        android:layout_height="41dp"
+        android:layout_width="234dp"
+        android:layout_height="59dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -75,8 +75,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="243dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:hint="ex. 123-456-7890"
         android:inputType="textPersonName" />
