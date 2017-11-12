@@ -205,9 +205,12 @@ public class DrinkActivity extends AppCompatActivity {
                 //user asked for permission & got it
                 else {
                     SmsManager sms = SmsManager.getDefault();
-                    String number = "+12035121641";
-                    sms.sendTextMessage(number, null, "Hello world I'm drunk",
-                            null, null);
+
+                    Realm realm = Realm.getDefaultInstance();
+                    User user = realm.where(User.class).findFirst();    //user info from database
+
+                    sms.sendTextMessage(user.getEmergencyNumber(), null,
+                                   "Hello world I'm drunk", null, null);
                 }
                 return true;
 
