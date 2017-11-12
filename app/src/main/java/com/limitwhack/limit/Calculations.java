@@ -30,7 +30,6 @@ public class Calculations {
         else {
             BACLevel = (((((0.9672 * standard_drinks)/(0.49 * realWeight)))-0.048) * 10);
         }
-
         return BACLevel;
     }
 
